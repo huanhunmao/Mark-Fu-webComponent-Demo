@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Component</title>
+  </head>
+  <body style="padding: 60px">
+    <h1>Web Component 马克付</h1>
+    <h2>1. Button</h2>
+    <mark-button type="primary"
+      ><span slot="btn-content" id="btn_primary"
+        >button test1</span
+      ></mark-button
+    >
+    <mark-button type="warning"
+      ><span slot="btn-content" id="btn_danger">button test2</span></mark-button
+    >
+    <mark-button type="default"
+      ><span slot="btn-content">button test3</span></mark-button
+    >
+
+    <!-- template定义区 -->
+    <template id="btn_tpl">
+      <slot name="btn-content">button content xxx</slot>
+    </template>
+
+    <script src="components/button.js"></script>
+    <script>
+      document.querySelector('#btn_primary').addEventListener(
+        'click',
+        () => {
+          alert('我是 btn_primary ，我被点击了')
+        },
+        false
+      )
+
+      document.querySelector('#btn_danger').addEventListener(
+        'click',
+        () => {
+          alert('我是 btn_danger 我很危险')
+        },
+        false
+      )
+    </script>
+  </body>
+</html>
